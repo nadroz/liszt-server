@@ -16,8 +16,6 @@ def health():
 
 @app.route('/email-addresses/<email>', methods=['ADD', 'DELETE'])
 def handle_email(email):
-    token = request.headers.get('X-LISZT-JWT')
-    decoded_token = decode(token)
     service = email_address_service()
     if request.method == 'ADD':
         service.add_address(email)
